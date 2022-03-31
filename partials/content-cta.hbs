@@ -1,0 +1,34 @@
+{{{html}}}
+<aside class="gh-post-upgrade-cta">
+    <div class="gh-post-upgrade-cta-content" style="background-color: {{accentColor}}">
+        {{#has visibility="paid"}}
+            <h2>
+                The full article
+                {{#has tag="#tour_article"}}
+                    along with GPS files
+                {{/has}}
+                is available<br/>with a WEB subscription
+            </h2>
+        {{/has}}
+        {{#has visibility="members"}}
+            <h2>The full article is available to<br/>
+              free newsletter and WEB subscribers.
+            </h2>
+        {{/has}}
+        {{#has visibility="tiers"}}
+            <h2>
+                The full article
+                {{#has tag="#tour_article"}}
+                    along with GPS files
+                {{/has}}
+                is available<br/>with a WEB subscription
+            </h2>
+        {{/has}}
+        {{#if @member}}
+            <a class="gh-btn" data-portal="account/plans" style="color:{{accentColor}}">Subscribe now</a>
+        {{else}}
+            <a class="gh-btn" data-portal="signup" style="color:{{accentColor}}">Subscribe now</a>
+            <p><small>Already have an account? <a data-portal="signin">Sign in</a></small></p>
+        {{/if}}
+    </div>
+</aside>
