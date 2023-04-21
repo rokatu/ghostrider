@@ -111,11 +111,18 @@ production stylesheet in assets/built/screen.css
     position: relative;
     z-index: 100;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-top: calc(19vmin + 44px);
-    padding-bottom: 19vmin;
+    padding: 6vw 3vw;
+    min-height: 200px;
+    max-height: 400px;
     text-align: center;
-    color: var(--color-darkgrey);
+}
+
+.site-header-content.small {
+    padding: 0;
+    min-height: 200px !important;
 }
 
 .has-cover .site-header-content {
@@ -169,10 +176,6 @@ production stylesheet in assets/built/screen.css
 
 .has-serif-title .site-title {
     font-family: var(--font-serif);
-}
-
-.has-cover .site-title {
-    font-size: 6rem;
 }
 
 .site-header-content.left-aligned .site-title {
@@ -590,6 +593,53 @@ production stylesheet in assets/built/screen.css
     border-radius: 48px;
     color: #fff;
     background: var(--ghost-accent-color);
+}
+
+span.gh-buttons-title {
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    font-size: 1.7rem;
+    line-height: 2em;
+    color: #c5d2d9; /* Formerly var(--color-lightgrey) / Was changed in 98f7f531 */
+}
+
+a.gh-head-secondary-button {
+    padding: 8px 15px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    font-size: 1.7rem;
+    line-height: 2em;
+    border-radius: 30px;
+}
+
+a.gh-head-secondary-button:hover {
+    background: var(--color-lightgrey);
+}
+
+.gh-small-show {
+    display: none;
+    visibility: hidden;
+}
+
+@media (max-width: 900px) {
+    span.gh-buttons-title {
+        display: none;
+    }
+    .gh-small-hide {
+        display: none;
+        visibility: hidden;
+    }
+    .gh-small-show {
+        display: inline;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 600px) {
+    a.gh-head-secondary-button {
+        padding: 8px;
+    }
 }
 
 .has-cover .gh-head-button {
@@ -2553,3 +2603,47 @@ file to add some of your own styles. Well, you've come to
 the right place. Onward!
 
  */
+
+select.drop-down-filter {
+    padding: 8px 15px;
+    color: #15171a;  /* Formerly var(--button-text-color, var(--color-darkgrey)); */
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    font-size: 1.5rem;
+    line-height: 1em;
+    background: #c5d2d9; /* Former var(--color-lightgrey) / Was changed in 98f7f531 */
+    border-radius: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: 0;
+}
+
+a.drop-down-filter-link {
+    padding: 8px 15px;
+    color: #15171a;  /* Formerly var(--button-text-color, var(--color-darkgrey)); */
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    font-size: 1.5rem;
+    line-height: 1em;
+    background: var(--button-bg-color, #fff);
+    border-radius: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+a.portal-when-logged-out, a.portal-when-logged-in {
+    display: none;
+}
+
+.post-card-primary-tag {
+    margin: 0 0 0.2em;
+    color: var(--ghost-accent-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.gh-head-primary-filter {
+    padding: 3px;
+}

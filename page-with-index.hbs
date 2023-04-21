@@ -1,0 +1,130 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{#page}}
+  <div class="site-header-content small">
+      {{#if feature_image}}
+          <img class="site-header-cover"
+              srcset="{{img_url feature_image size="s"}} 300w,
+                      {{img_url feature_image size="m"}} 600w,
+                      {{img_url feature_image size="l"}} 1000w,
+                      {{img_url feature_image size="xl"}} 2000w"
+              sizes="100vw"
+              src="{{img_url feature_image size="xl"}}"
+              alt=""
+          />
+      {{/if}}
+      <h1 class="site-title">
+        {{title}}
+      </h1>
+      <p>
+      </p>
+      {{#has tag="#show-primary-tours-filter"}}
+      <div class="gh-head-primary-filter {{#has tag="#show-usa-tours-filter"}}gh-small-hide{{/has}}">
+        <span class="gh-buttons-title">Filters:</span>
+        <a class="gh-head-secondary-button" href="/tours/united-states/">USA</a>
+        <a class="gh-head-secondary-button" href="/tours/canada/">Canada</a>
+        <a class="gh-head-secondary-button" href="/tours/europe/">Europe</a>
+        <a class="gh-head-secondary-button" href="/tours/north-and-south-america/">Americas</a>
+        <a class="gh-head-secondary-button" href="/tours/africa/">Africa</a>
+        <a class="gh-head-secondary-button" href="/tours/asia/">Asia</a>
+        <a class="gh-head-secondary-button" href="/tours/oceania/">Oceania</a>
+      </div>
+      {{/has}}
+      {{#has tag="#show-usa-tours-filter"}}
+      <div class="gh-head-secondary-filter {{#has tag="#show-usa-tours-filter"}}gh-small-hide{{/has}}">
+        <a class="gh-head-secondary-button {{#has tag="#show-usa-tours-filter"}}gh-small-show{{/has}}" href="/tours/">All</a>
+        <a class="gh-head-secondary-button" href="/tours/northeast-region/">Northeast</a>
+        <a class="gh-head-secondary-button" href="/tours/southeast-region/">Southeast</a>
+        <a class="gh-head-secondary-button" href="/tours/midwest-region/">Midwest</a>
+        <a class="gh-head-secondary-button" href="/tours/southwest-region/">Southwest</a>
+        <a class="gh-head-secondary-button" href="/tours/west-region/">West</a>
+      </div>
+      <div class="gh-head-secondary-filter">
+        <select class="drop-down-filter" onChange="document.getElementById('usa-tours-states-filter-link').href = event.target.value">
+          <option value="/tours/united-states/">All</option>
+          <option value="/tag/alabama">Alabama</option>
+          <option value="/tag/alaska">Alaska</option>
+          <option value="/tag/arizona">Arizona</option>
+          <option value="/tag/arkansas">Arkansas</option>
+          <option value="/tag/california">California</option>
+          <option value="/tag/colorado">Colorado</option>
+          <option value="/tag/connecticut">Connecticut</option>
+          <option value="/tag/delaware">Delaware</option>
+          <option value="/tag/district-of-columbia">District Of Columbia</option>
+          <option value="/tag/florida">Florida</option>
+          <option value="/tag/georgia">Georgia</option>
+          <option value="/tag/hawaii">Hawaii</option>
+          <option value="/tag/idaho">Idaho</option>
+          <option value="/tag/illinois">Illinois</option>
+          <option value="/tag/indiana">Indiana</option>
+          <option value="/tag/iowa">Iowa</option>
+          <option value="/tag/kansas">Kansas</option>
+          <option value="/tag/kentucky">Kentucky</option>
+          <option value="/tag/louisiana">Louisiana</option>
+          <option value="/tag/maine">Maine</option>
+          <option value="/tag/maryland">Maryland</option>
+          <option value="/tag/massachusetts">Massachusetts</option>
+          <option value="/tag/michigan">Michigan</option>
+          <option value="/tag/minnesota">Minnesota</option>
+          <option value="/tag/mississippi">Mississippi</option>
+          <option value="/tag/missouri">Missouri</option>
+          <option value="/tag/montana">Montana</option>
+          <option value="/tag/nebraska">Nebraska</option>
+          <option value="/tag/nevada">Nevada</option>
+          <option value="/tag/new-hampshire">New Hampshire</option>
+          <option value="/tag/new-jersey">New Jersey</option>
+          <option value="/tag/new-mexico">New Mexico</option>
+          <option value="/tag/new-york">New York</option>
+          <option value="/tag/north-carolina">North Carolina</option>
+          <option value="/tag/north-dakota">North Dakota</option>
+          <option value="/tag/ohio">Ohio</option>
+          <option value="/tag/oklahoma">Oklahoma</option>
+          <option value="/tag/oregon">Oregon</option>
+          <option value="/tag/pennsylvania">Pennsylvania</option>
+          <option value="/tag/rhode-island">Rhode Island</option>
+          <option value="/tag/south-carolina">South Carolina</option>
+          <option value="/tag/south-dakota">South Dakota</option>
+          <option value="/tag/tennessee">Tennessee</option>
+          <option value="/tag/texas">Texas</option>
+          <option value="/tag/utah">Utah</option>
+          <option value="/tag/vermont">Vermont</option>
+          <option value="/tag/virginia">Virginia</option>
+          <option value="/tag/washington">Washington</option>
+          <option value="/tag/west-virginia">West Virginia</option>
+          <option value="/tag/wisconsin">Wisconsin</option>
+          <option value="/tag/wyoming">Wyoming</option>
+        </select>
+        <a href="#" id="usa-tours-states-filter-link" class="drop-down-filter-link">Filter By State</a>
+      </div>
+      {{/has}}
+      {{#has tag="#show-primary-motorcycle-types-filter"}}
+      <div class="gh-head-primary-filter">
+        <span class="gh-buttons-title">Filters:</span>
+        <a class="gh-head-secondary-button" href="/motorcycles/classic-vintage">Classic/Vintage</a>
+        <a class="gh-head-secondary-button" href="/motorcycles/cruiser">Cruiser</a>
+        <a class="gh-head-secondary-button" href="/motorcycles/dual-sport-enduro">Dual-Sport/Enduro</a>
+        <a class="gh-head-secondary-button" href="/motorcycles/naked-standard">Naked/Standard</a>
+        <a class="gh-head-secondary-button" href="/motorcycles/scooter">Scooter</a>
+        <a class="gh-head-secondary-button" href="/motorcycles/sports-race">Sports/Race</a>
+        <a class="gh-head-secondary-button" href="/motorcycles/supermoto">Supermoto</a>
+        <a class="gh-head-secondary-button" href="/motorcycles/touring">Touring</a>
+      </div>
+      {{/has}}
+  </div>
+{{/page}}
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="inner posts">
+        <div class="post-feed post-feed-autoscroll{{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#foreach posts}}
+
+                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                {{> "post-card"}}
+
+            {{/foreach}}
+        </div>
+    </div>
+</main>
