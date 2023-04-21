@@ -1,0 +1,127 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{#match @custom.publication_cover_style "!=" "None"}}
+    <div class="site-header-content{{#match @custom.publication_cover_style "Large"}} large{{/match}}">
+        {{#if @site.cover_image}}
+            {{!-- This is a responsive image, it loads different sizes depending on device
+            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+            <img class="site-header-cover"
+                srcset="{{img_url @site.cover_image size="s"}} 300w,
+                        {{img_url @site.cover_image size="m"}} 600w,
+                        {{img_url @site.cover_image size="l"}} 1000w,
+                        {{img_url @site.cover_image size="xl"}} 2000w"
+                sizes="100vw"
+                src="{{img_url @site.cover_image size="xl"}}"
+                alt=""
+            />
+        {{/if}}
+        <h1 class="site-title">
+            {{#if @site.logo}}
+                <img class="site-logo" src="{{img_url @site.logo size="m"}}" alt="{{@site.title}}" />
+            {{else}}
+                {{@site.title}}
+            {{/if}}
+        </h1>
+        <p>{{@site.description}}</p>
+    </div>
+{{/match}}
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="inner posts">
+        <div class="post-card-subscription-cta-block">
+            <div class="post-card-subscription-cta-text">
+                <p>
+                    RoadRUNNER is an independently owned and published motorcycle touring and travel magazine. On our website, you will find exciting travel stories, reviews, news, and other resources for planning your next motorcycle tour. We offer a wide variety of free content, but only our active web subscribers get access to the entire 650+ tour database, complete with maps and GPS route files. Web subscribers also enjoy exclusive web-only stories.
+                </p>
+                <p>
+                    Click <em>Tours</em> in the top menu and start planning your next motorcycle adventure.
+                </p>
+            </div>
+        </div>
+
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:hash-tour-article+tags:-city-escape" order="published_at desc" limit="7" include="tags,authors"}}
+              {{#foreach posts}}
+
+                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                  {{> "post-card" hero_post=true}}
+
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">Latest Motorcycle Reviews</h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:hash-motorcycle-review" order="published_at desc" limit="7" include="tags,authors"}}
+              {{#foreach posts}}
+
+                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                  {{> "post-card"}}
+
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">News</h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:news" order="published_at desc" limit="7" include="tags,authors"}}
+              {{#foreach posts}}
+
+                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                  {{> "post-card"}}
+
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">City Escapes</h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:city-escape" order="published_at desc" limit="4" include="tags,authors"}}
+              {{#foreach posts}}
+
+                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                  {{> "post-card"}}
+
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">Shamrock Tours</h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:shamrock-tour" order="published_at desc" limit="4" include="tags,authors"}}
+              {{#foreach posts}}
+
+                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                  {{> "post-card"}}
+
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">Products Reviews</h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:hash-product" order="published_at desc" limit="7" include="tags,authors"}}
+              {{#foreach posts}}
+
+                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                  {{> "post-card"}}
+
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+    </div>
+</main>
