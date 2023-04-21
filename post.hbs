@@ -32,6 +32,7 @@ into the {body} tag of the default.hbs template --}}
         <div class="article-byline">
         <section class="article-byline-content">
 
+            {{^has author="RoadRUNNER Staff"}}
             <ul class="author-list">
                 {{#foreach authors}}
                 <li class="author-list-item">
@@ -45,13 +46,21 @@ into the {body} tag of the default.hbs template --}}
                 </li>
                 {{/foreach}}
             </ul>
+            {{/has}}
 
             <div class="article-byline-meta">
+                {{^has author="RoadRUNNER Staff"}}
                 <h4 class="author-name">{{authors}}</h4>
+                {{/has}}
                 <div class="byline-meta-content">
+                    {{#has tag="#article, #product"}}
                     <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
                     {{#if reading_time}}
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
+                    <span class="bull">&bull;</span>
+                    {{/if}}
+                    {{/has}}
+                    {{#if reading_time}}
+                        <span class="byline-reading-time">{{reading_time}}</span>
                     {{/if}}
                 </div>
             </div>
