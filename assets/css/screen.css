@@ -838,6 +838,42 @@ production stylesheet in assets/built/screen.css
 /* 5. Post Feed
 /* ---------------------------------------------------------- */
 
+.post-card-subscription-cta-block {
+    background-color: var(--color-lightgrey);
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 1.9rem;
+}
+
+.post-card-subscription-cta-block p:first-child {
+    margin-bottom: 25px;
+}
+
+.post-card-subscription-cta-text {
+    color: var(--ghost-accent-color);
+}
+
+.post-card-subscription-cta-button {
+    background-color: var(--ghost-accent-color);
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 25px;
+}
+
+@media (max-width: 700px) {
+    .post-card-subscription-cta-block {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.post-category-title {
+    color: #f60;
+}
+
 .post-feed {
     position: relative;
     display: grid;
