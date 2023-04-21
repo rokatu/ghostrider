@@ -23,7 +23,7 @@
     }
 
     // post feed element
-    var feedElement = document.querySelector('.post-feed');
+    var feedElement = document.querySelector('.post-feed-autoscroll');
     if (!feedElement) {
         return;
     }
