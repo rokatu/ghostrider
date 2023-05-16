@@ -2654,3 +2654,7 @@ a.portal-when-logged-out, a.portal-when-logged-in {
 .gh-head-primary-filter {
     padding: 3px;
 }
+
+.gh-announcement-bar.dark {
+    background-color: #f60 !important;
+}
