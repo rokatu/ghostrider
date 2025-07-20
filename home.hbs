@@ -32,9 +32,11 @@ into the {body} of the default.hbs template --}}
 
         <hr/>
 
-        <h2 class="post-category-title">Latest Motorcycle Reviews</h2>
+        <h2 class="post-category-title">
+            <a href="/motorcycles/" class="post-category-title">Motorcycles</a>
+        </h2>
         <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
-            {{#get "posts" filter="tags:hash-motorcycle-review" order="published_at desc" limit="7" include="tags,authors"}}
+            {{#get "posts" filter="tags:hash-motorcycle-review" order="published_at desc" limit="3" include="tags,authors"}}
               {{#foreach posts}}
 
                   {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
@@ -46,56 +48,130 @@ into the {body} of the default.hbs template --}}
 
         <hr/>
 
-        <h2 class="post-category-title">News</h2>
+        <h2 class="post-category-title">
+            <a href="/tag/destinations" class="post-category-title">Destinations</a>
+        </h2>
         <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
-            {{#get "posts" filter="tags:news" order="published_at desc" limit="7" include="tags,authors"}}
+            {{#get "posts" filter="tags:destinations" order="published_at desc" limit="3" include="tags,authors"}}
               {{#foreach posts}}
-
-                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
                   {{> "post-card"}}
-
               {{/foreach}}
             {{/get}}
         </div>
 
         <hr/>
 
-        <h2 class="post-category-title">City Escapes</h2>
+        <h2 class="post-category-title">
+            <a href="/tag/shamrock-tour/" class="post-category-title">Shamrock Tours</a>
+        </h2>
         <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
-            {{#get "posts" filter="tags:city-escape" order="published_at desc" limit="4" include="tags,authors"}}
+            {{#get "posts" filter="tags:shamrock-tour" order="published_at desc" limit="3" include="tags,authors"}}
               {{#foreach posts}}
-
-                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
                   {{> "post-card"}}
-
               {{/foreach}}
             {{/get}}
         </div>
 
         <hr/>
 
-        <h2 class="post-category-title">Shamrock Tours</h2>
+        <h2 class="post-category-title">
+            <a href="/tag/roundtrip-tour" class="post-category-title">Roundtrip Tours</a>
+        </h2>
         <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
-            {{#get "posts" filter="tags:shamrock-tour" order="published_at desc" limit="4" include="tags,authors"}}
+            {{#get "posts" filter="tags:roundtrip-tour" order="published_at desc" limit="3" include="tags,authors"}}
               {{#foreach posts}}
-
-                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
                   {{> "post-card"}}
-
               {{/foreach}}
             {{/get}}
         </div>
 
         <hr/>
 
-        <h2 class="post-category-title">Products Reviews</h2>
+        <h2 class="post-category-title">
+            <a href="/tag/travel-guide" class="post-category-title">Travel Guides</a>
+        </h2>
         <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
-            {{#get "posts" filter="tags:hash-product" order="published_at desc" limit="7" include="tags,authors"}}
+            {{#get "posts" filter="tags:travel-guide" order="published_at desc" limit="3" include="tags,authors"}}
               {{#foreach posts}}
-
-                  {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
                   {{> "post-card"}}
+              {{/foreach}}
+            {{/get}}
+        </div>
 
+        <hr/>
+
+        <h2 class="post-category-title">
+            <a href="#" class="post-category-title">Classic Roads</a>
+        </h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:hash-tour-article+tags:-city-escape" order="published_at desc" limit="3" include="tags,authors"}}
+              {{#foreach posts}}
+                  {{> "post-card"}}
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">
+            <a href="/tag/city-escape/" class="post-category-title">City Escapes</a>
+        </h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:city-escape" order="published_at desc" limit="3" include="tags,authors"}}
+              {{#foreach posts}}
+                  {{> "post-card"}}
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">
+            <a href="/tag/accommodations" class="post-category-title">Accommodations</a>
+        </h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:accommodations" order="published_at desc" limit="3" include="tags,authors"}}
+              {{#foreach posts}}
+                  {{> "post-card"}}
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">
+            <a href="/articles/" class="post-category-title">News</a>
+        </h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:news" order="published_at desc" limit="3" include="tags,authors"}}
+              {{#foreach posts}}
+                  {{> "post-card"}}
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">
+            <a href="/tag/product-review/" class="post-category-title">Products</a>
+        </h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:hash-product" order="published_at desc" limit="3" include="tags,authors"}}
+              {{#foreach posts}}
+                  {{> "post-card"}}
+              {{/foreach}}
+            {{/get}}
+        </div>
+
+        <hr/>
+
+        <h2 class="post-category-title">
+            <a href="/tag/columns" class="post-category-title">Columns</a>
+        </h2>
+        <div class="post-feed {{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#get "posts" filter="tags:columns" order="published_at desc" limit="3" include="tags,authors"}}
+              {{#foreach posts}}
+                  {{> "post-card"}}
               {{/foreach}}
             {{/get}}
         </div>
